@@ -19,7 +19,7 @@ public class TodoController {
     private final TodoService todoService;
 
     @GetMapping("/")
-    ResponseEntity<String> getTodo(@RequestParam String id) {
+    ResponseEntity<String> getTodo(@RequestParam int id) {
        return todoService.getTodo(id);
     }
 

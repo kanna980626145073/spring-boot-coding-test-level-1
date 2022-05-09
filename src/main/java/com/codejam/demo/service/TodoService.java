@@ -18,7 +18,7 @@ public class TodoService {
     private final RestTemplate restTemplate;
 
 
-    public ResponseEntity<String> getTodo(String id) {
+    public ResponseEntity<String> getTodo(int id) {
 
     String response =   restTemplate.getForObject(todoUrl + id,String.class);
     Optional<String> responseOptional = Optional.ofNullable(response);
