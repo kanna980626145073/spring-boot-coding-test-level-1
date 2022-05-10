@@ -1,5 +1,6 @@
 package com.codejam.demo.controller;
 
+import com.codejam.demo.constants.PathConstants;
 import com.codejam.demo.entity.PersonalInformation;
 import com.codejam.demo.entity.Revenue;
 import com.codejam.demo.entity.Schedule;
@@ -17,35 +18,35 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "demo")
+@RequestMapping(path = PathConstants.DEMO_PATH)
 public class DemoController {
 
     private final PersonalInformationService personalInformationService;
     private final RevenueService revenueService;
     private final ScheduleService scheduleService;
 
-    @GetMapping(path = "/unit-test")
-    ResponseEntity<Integer> getUnitTestResult() throws Exception{
+    @GetMapping(path = PathConstants.UNIT_TEST_PATH)
+    ResponseEntity<Integer> getUnitTestResult() {
         return null;
     }
 
-    @GetMapping(path = "/persons")
-    ResponseEntity<List<PersonalInformation>> getAllPersons() throws Exception {
+    @GetMapping(path = PathConstants.PERSONS_PATH)
+    ResponseEntity<List<PersonalInformation>> getAllPersons() {
         return personalInformationService.getAllPersons();
     }
 
-    @GetMapping(path = "/random-person")
-    ResponseEntity<Optional<PersonalInformation>> getRandomPerson() throws Exception {
+    @GetMapping(path = PathConstants.RANDOM_PERSON_PATH)
+    ResponseEntity<Optional<PersonalInformation>> getRandomPerson() {
         return personalInformationService.findRandomPerson();
     }
 
-    @GetMapping("/revenues")
-    ResponseEntity<List<Revenue>> getAllRevenues() throws Exception {
+    @GetMapping(path = PathConstants.REVENUES_PATH)
+    ResponseEntity<List<Revenue>> getAllRevenues() {
         return revenueService.getAllRevenues();
     }
 
-    @GetMapping("/schedules")
-    ResponseEntity<List<Schedule>> getAllSchedules() throws Exception {
+    @GetMapping(path = PathConstants.SCHEDULES_PATH)
+    ResponseEntity<List<Schedule>> getAllSchedules() {
         return scheduleService.getAllSchedules();
     }
 

@@ -1,25 +1,23 @@
 package com.codejam.demo.controller;
 
 
+import com.codejam.demo.constants.PathConstants;
 import com.codejam.demo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "api/v1/todo")
+@RequestMapping(path = PathConstants.RESOURCE_PATH)
 public class TodoController {
 
     @Autowired
     private final TodoService todoService;
 
-    @GetMapping("/")
-    ResponseEntity<String> getTodo(@RequestParam int id) {
+    @GetMapping(path = PathConstants.TODO_PATH)
+    ResponseEntity<String> getTodo(@PathVariable int id) {
        return todoService.getTodo(id);
     }
 
