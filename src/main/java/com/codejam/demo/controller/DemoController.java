@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +32,11 @@ public class DemoController {
     @GetMapping(path = "/persons")
     ResponseEntity<List<PersonalInformation>> getAllPersons() throws Exception {
         return personalInformationService.getAllPersons();
+    }
+
+    @GetMapping(path = "/random-person")
+    ResponseEntity<Optional<PersonalInformation>> getRandomPerson() throws Exception {
+        return personalInformationService.findRandomPerson();
     }
 
     @GetMapping("/revenues")
